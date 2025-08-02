@@ -1,0 +1,167 @@
+.rewards-page {
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  background: #f9f9f9;
+  line-height: 1.6;
+}
+
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1d3557;
+}
+.section p {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  font-size: 1.1rem;
+  color: #555;
+}
+.section a {
+  color: #0056b3;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.gray {
+  background: #f3f3f3;
+}
+.white {
+  background: #fff;
+}
+
+.hero {
+  background: #e6e6e6;
+  text-align: center;
+  padding: 80px 20px;
+}
+.hero h1 {
+  font-size: 3rem;
+  color: #1d3557;
+  margin-bottom: 20px;
+}
+.hero p {
+  max-width: 600px;
+  margin: auto;
+  font-size: 1.2rem;
+}
+.hero button {
+  margin-top: 30px;
+  padding: 12px 24px;
+  background: #1d3557;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.hero button:hover {
+  background: #14314a;
+}
+
+.join-now {
+  padding: 60px 20px;
+  background: #1d3557;
+  color: white;
+  text-align: center;
+}
+.join-now h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+.join-now p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.join-now button {
+  background: white;
+  color: #1d3557;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.join-now button:hover {
+  background: #f2f2f2;
+}
+
+.benefit-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+  background: #fff;
+}
+.benefit-item {
+  width: 300px;
+  background: #f3f3f3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  text-align: left;
+}
+.benefit-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.benefit-item h3 {
+  margin: 15px;
+  color: #1d3557;
+}
+.benefit-item p {
+  margin: 0 15px 10px;
+  color: #555;
+}
+.benefit-item a {
+  margin: 0 15px 15px;
+  display: inline-block;
+  color: #0056b3;
+  font-weight: 500;
+}
+
+.double-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+.mini-card {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 300px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  text-align: left;
+}
+.mini-card h3 {
+  color: #1d3557;
+  margin-bottom: 10px;
+}
+.mini-card p {
+  color: #555;
+  margin-bottom: 10px;
+}
+.mini-card a {
+  color: #0056b3;
+  font-weight: 500;
+}
+
+.faq-cta {
+  background: #efefef;
+  text-align: center;
+  padding: 50px 20px;
+}
+.faq-cta h3 {
+  font-size: 1.8rem;
+  color: #1d3557;
+}
+.faq-cta p {
+  font-size: 1.1rem;
+}

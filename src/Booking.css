@@ -1,0 +1,202 @@
+/* Background video */
+.video-background-container {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-overlay h1 {
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Room intro */
+.room-intro-text {
+  text-align: center;
+  padding: 40px 20px 20px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.room-intro-text h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.room-intro-text p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Layout alternating */
+.booking-room-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 40px 0;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.left-layout .room-info {
+  order: 1;
+}
+
+.left-layout .room-book-box {
+  order: 2;
+}
+
+.right-layout .room-info {
+  order: 2;
+}
+
+.right-layout .room-book-box {
+  order: 1;
+}
+
+.booking-room-section:hover {
+  transform: scale(1.01);
+}
+
+/* Info */
+.room-info {
+  flex: 1;
+  min-width: 280px;
+}
+
+.room-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.room-description {
+  margin-top: 10px;
+  color: #444;
+  font-style: italic;
+}
+
+.icon-row {
+  margin-top: 10px;
+  display: flex;
+  gap: 12px;
+}
+
+.service-icon {
+  font-size: 20px;
+  color: #1f1f1f;
+}
+
+/* Booking Form */
+.room-book-box {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.room-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+
+.input-boxes {
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+.input-boxes label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+
+.input-boxes input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.book-button {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.book-button:hover {
+  background-color: #444;
+}
+
+/* Booking Modal */
+.booking-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 18px;
+  color: #111;
+}
+
+/* Animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}

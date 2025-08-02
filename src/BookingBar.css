@@ -1,0 +1,111 @@
+/* Main booking bar container */
+.booking-bar-glass {
+  position: sticky;       /* Make it stick */
+  top: 0;                 /* Stick to top */
+  background: #f8f8f8;    /* Light theme background */
+  border-radius: 20px;
+  padding: 30px;
+  color: #333;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+
+/* Labels */
+label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+/* Input fields */
+.datepicker-input,
+.form-control {
+  background: #fff !important;
+  border: 1px solid #ccc !important;
+  border-radius: 6px;
+  color: #333 !important;
+  padding: 10px !important;
+}
+
+/* Calendar popup */
+.react-datepicker {
+  background-color: #ffffff !important;
+  color: #333 !important;
+  border-radius: 10px;
+  border: 1px solid #ccc !important;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+/* Calendar day selected */
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #555 !important;
+  color: #fff !important;
+}
+
+/* Dropdown overlay (guests/rates) */
+.dropdown-menu,
+.dropdown-overlay {
+  background-color: #ffffff !important;
+  color: #333 !important;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 999;
+  padding: 16px;
+  border: 1px solid #ccc;
+}
+
+/* Dropdown rows inside guest selector */
+.dropdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.dropdown-row button {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-row button:hover {
+  background-color: #ccc;
+}
+
+.dropdown-box {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Done and Book buttons */
+.done-btn,
+.book-btn {
+  background-color: #555;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.done-btn:hover,
+.book-btn:hover {
+  background-color: #333;
+}

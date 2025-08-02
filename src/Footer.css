@@ -1,0 +1,132 @@
+.footer {
+  background-color: #1f2b36;
+  color: #ddd;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 30px 20px 20px;
+}
+
+/* Top Bar */
+.footer-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #2e3d4a;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.footer-social svg {
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.footer-social svg:hover {
+  color: #fff;
+}
+
+/* Destinations */
+.footer-destinations {
+  margin-bottom: 30px;
+}
+
+.footer-destinations h4 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.destinations-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.destination-pill {
+  border: 1px solid #ccc;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #fff;
+  background: transparent;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.destination-pill:hover {
+  background: #fff;
+  color: #1f2b36;
+}
+
+/* Footer Links Grid */
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  border-top: 1px solid #2e3d4a;
+  padding-top: 30px;
+}
+
+.footer-columns h4 {
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+  color: #fff;
+  border-bottom: 1px solid #555;
+  padding-bottom: 6px;
+}
+
+.footer-columns ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-columns li {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.footer-columns li:hover {
+  color: #fff;
+}
+
+.footer-columns svg {
+  margin-right: 6px;
+}
+
+/* Bottom */
+.footer-bottom {
+  margin-top: 30px;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #aaa;
+  border-top: 1px solid #2e3d4a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-topbar {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+  .footer-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .destinations-list {
+    justify-content: center;
+  }
+}
