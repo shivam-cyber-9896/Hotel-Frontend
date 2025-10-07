@@ -1,8 +1,11 @@
 .custom-navbar {
+  position: -webkit-sticky; /* Safari support */
   position: sticky;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1050;
-  background: rgba(255, 255, 255, 0.3); /* Transparent glass */
+  background: rgba(255, 255, 255, 0.95); /* More opaque for better visibility */
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -10,6 +13,15 @@
   font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   transition: all 0.3s ease;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  margin: 0;
+}
+
+/* Ensure sticky works properly */
+.custom-navbar.navbar {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
 }
 
 /* Container Layout */

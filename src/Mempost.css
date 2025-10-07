@@ -1,168 +1,490 @@
-/* Section layout */
+/* Modern Membership Section */
 .membership-section {
   min-height: 100vh;
-  padding: 3rem 1rem;
-  background: linear-gradient(to bottom right, #2c2c2c, #444);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-  color: #f5f5f5;
+  background: #ffffff;
+  color: #333333;
+  overflow-x: hidden;
 }
 
-/* Heading section */
-.intro-text {
+/* Loading State */
+.membership-section.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
   text-align: center;
-  max-width: 800px;
+  color: #333333;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(51, 51, 51, 0.3);
+  border-top: 4px solid #333333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hero Section */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.hero-content {
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+.badge-new {
+  display: inline-block;
+  background: #f8f9fa;
+  border: 2px solid #007bff;
+  color: #007bff;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0.5rem 0 1rem 0;
+  color: #333333;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #666666;
   margin-bottom: 2rem;
 }
 
-.intro-text h1 {
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat .number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat .label {
+  font-size: 1rem;
+  color: #666666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInRight 0.8s ease-out;
+}
+
+.hero-gif {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero-video {
+  width: 100%;
+  max-width: 500px;
+  height: 350px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+/* Tiers Section */
+.tiers-section {
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #fff;
   margin-bottom: 1rem;
 }
 
-.intro-text p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #ddd;
+.section-header p {
+  font-size: 1.2rem;
+  color: #666666;
 }
 
-/* Card layout */
-.card-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.membership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
-  width: 100%;
-  max-width: 1300px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Radisson logo */
-.radisson-logo {
-  height: 100px;
+.membership-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
   cursor: pointer;
+}
+
+.membership-card:nth-child(1) { animation-delay: 0.1s; }
+.membership-card:nth-child(2) { animation-delay: 0.2s; }
+.membership-card:nth-child(3) { animation-delay: 0.3s; }
+
+.membership-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.membership-card.popular {
+  border: 2px solid #007bff;
+  box-shadow: 0 8px 30px rgba(0, 123, 255, 0.2);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: #ffffff;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tier-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tier-icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.card-header h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #666666;
+  margin: 0.5rem 0;
+}
+
+.nights-required {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  color: #495057;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.card-body {
+  margin-bottom: 2rem;
+}
+
+
+.perk-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.perk-item:last-child {
+  border-bottom: none;
+}
+
+.perk-icon {
+  font-size: 1.5rem;
+  width: 30px;
+  text-align: center;
+}
+
+.perk-text {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.card-footer {
+  text-align: center;
+}
+
+.join-button {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.join-button:hover {
+  background: linear-gradient(45deg, #0056b3, #004085);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+}
+
+/* Tier Colors */
+.membership-card.bronze .join-button {
+  background: linear-gradient(45deg, #cd7f32, #b8860b);
+}
+
+.membership-card.gold .join-button {
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #000;
+}
+
+.membership-card.platinum .join-button {
+  background: linear-gradient(45deg, #e5e4e2, #c0c0c0);
+  color: #000;
+}
+
+/* Benefits Section */
+.benefits-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #ffffff;
+}
+
+.benefits-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+}
+
+.benefit-card {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 20px;
+  padding: 2rem;
   transition: transform 0.3s ease;
 }
 
-.radisson-logo:hover {
-  transform: scale(1.08);
+.benefit-card:hover {
+  transform: translateY(-5px);
 }
 
-/* Glassmorphic Card */
-.glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(16px);
-  border-radius: 20px;
-  padding: 1.5rem;
-  width: 260px;
-  text-align: center;
-  color: #fff;
-  position: relative;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease-in-out;
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.glass-card.reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Hover effect */
-.glass-card:hover {
-  transform: translateY(-10px);
-}
-
-/* Badge */
-.badge {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  padding: 6px 14px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 16px;
-  background-color: #fff;
-  color: #000;
-}
-
-.badge.gold {
-  background: #ffd700;
-}
-
-.badge.silver {
-  background: #c0c0c0;
-}
-
-.badge.platinum {
-  background: linear-gradient(to right, #d3d3d3, #f7f7f7);
-}
-
-/* Card image */
-.card-image {
-  width: 100%;
-  height: 140px;
-  border-radius: 12px;
+.benefit-icon {
+  font-size: 3rem;
   margin-bottom: 1rem;
-  object-fit: cover;
-  filter: grayscale(80%);
-  transition: 0.3s ease;
 }
 
-.glass-card:hover .card-image {
-  filter: grayscale(0%);
+.benefit-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
-/* Perk list */
-.perk-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 1rem;
-  text-align: left;
-  font-size: 0.95rem;
-  color: #eee;
+.benefit-card p {
+  color: #666666;
+  line-height: 1.6;
 }
 
-.perk-list li {
-  margin-bottom: 0.5rem;
+.cta-section {
+  margin-top: 3rem;
   display: flex;
-  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-/* Join Button */
-.join-btn {
-  margin-top: 1.2rem;
-  padding: 0.5rem 1.2rem;
-  font-weight: bold;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid #fff;
-  color: #fff;
-  border-radius: 30px;
-  transition: all 0.3s ease;
+.cta-button {
+  padding: 1rem 3rem;
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.join-btn:hover {
-  background: #fff;
-  color: #000;
-  transform: scale(1.05);
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
 }
 
-/* Responsive */
+.cta-button-secondary {
+  padding: 1rem 3rem;
+  background: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button-secondary:hover {
+  background: #007bff;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .intro-text h1 {
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-stats {
+    gap: 1rem;
+  }
+  
+  .stat .number {
     font-size: 2rem;
   }
-
-  .radisson-logo {
-    height: 80px;
+  
+  .membership-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-
-  .glass-card {
-    width: 90%;
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
   }
 }

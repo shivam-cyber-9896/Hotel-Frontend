@@ -1,0 +1,9 @@
+/* Adding some subtle transitions and a box-shadow effect on hover for the deal cards */
+.deal-card-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+.deal-card-transition:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}

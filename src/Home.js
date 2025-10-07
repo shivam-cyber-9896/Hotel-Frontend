@@ -1,5 +1,5 @@
 import React from 'react';
-import CircularRooms from './CircularRooms'
+
 import BookingBar from './BookingBar';
 import About from './About';
 import Services from './Services';
@@ -8,15 +8,13 @@ import Rooms from './Rooms';
 import Mempost from './Mempost';
 import Contact from './Contact';
 import InstagramEmbed from './InstagramEmbed';
+import Reviews from './Reviews';
 const Home = () => {
   return (
     <div>
-       
+     
       <About />
-    <div style={{ paddingTop: '20px' }}>
-  <BookingBar />
-</div>
-
+    <BookingBar />
  <section id="reservation">
         <Rooms />
       </section>
@@ -24,7 +22,9 @@ const Home = () => {
     <section id="services">
   <Services />
 </section>
-<CircularRooms />
+<section id="review">
+        <Reviews />
+      </section>
     <NearbyAttractions />
      <Mempost />
      <InstagramEmbed />
