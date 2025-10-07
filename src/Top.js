@@ -34,10 +34,11 @@ function Top() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="main-nav mx-auto align-items-center">
             <Nav.Link href="/destinations">Destinations</Nav.Link>
-            <Nav.Link href="#resorts">Resorts</Nav.Link>
-            <Nav.Link href="#meetings">Meetings & Events</Nav.Link>
-            <Nav.Link href="deals">Deals</Nav.Link>
+            <Nav.Link href="/resorts">Resorts</Nav.Link>
+            <Nav.Link href="/meetings-events">Meetings & Events</Nav.Link>
+            <Nav.Link href="/deals">Deals</Nav.Link>
             <NavDropdown title="More" id="collapsible-nav-dropdown">
+              <NavDropdown.Item href="#review">Reviews</NavDropdown.Item>
               <NavDropdown.Item href="#about">About</NavDropdown.Item>
               <NavDropdown.Item href="#contact">Contact Us</NavDropdown.Item>
               <NavDropdown.Item href="#reservation">Reservation</NavDropdown.Item>

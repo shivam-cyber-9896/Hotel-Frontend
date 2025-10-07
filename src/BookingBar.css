@@ -1,7 +1,7 @@
 /* Main booking bar container */
 .booking-bar-glass {
   position: sticky;       /* Make it stick */
-  top: 0;                 /* Stick to top */
+           /* Stick to top */
   background: #f8f8f8;    /* Light theme background */
   border-radius: 20px;
   padding: 30px;

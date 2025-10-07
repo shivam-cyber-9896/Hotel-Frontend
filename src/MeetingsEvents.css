@@ -1,0 +1,44 @@
+.meetings-events-container {
+  padding: 2rem 4rem;
+  text-align: center;
+}
+
+.meetings-events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.meeting-event-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.meeting-event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.meeting-event-info {
+  padding: 1.5rem;
+}
+
+.meeting-event-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.btn-request-quote {
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}

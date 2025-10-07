@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import './Booking.css';
-import { FaWifi, FaUtensils, FaTv, FaSnowflake, FaBed, FaSwimmingPool, FaConciergeBell, FaSpa, FaCheckCircle } from 'react-icons/fa';
+import axios from 'axios';
+import { 
+  FaWifi, FaUtensils, FaTv, FaSnowflake, FaBed, 
+  FaSwimmingPool, FaConciergeBell, FaSpa, FaCheckCircle 
+} from 'react-icons/fa';
+import Reviews from './Reviews';
+
+const API_URL = "https://hotel-backend-qon3.onrender.com/bookdone";
 
 const bookingRooms = [
   {
@@ -56,12 +63,66 @@ const bookingRooms = [
 ];
 
 const Booking = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [selectedRoom, setSelectedRoom] = useState(null);
+  const [formData, setFormData] = useState({
+    ownerName: '',
+    email: '',
+    phone: '',
+    numberOfRooms: 1,
+    adults: 1,
+    children: 0,
+    checkin: '',
+    checkout: '',
+    guestDetails: [],
+  });
+  const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleBooking = () => {
-    setShowModal(true);
-    setTimeout(() => setShowModal(false), 3000); // Hide after 3 sec
+  const handleBookingClick = (room) => {
+    setSelectedRoom(room);
+    setShowForm(true);
   };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleGuestDetailChange = (e, index) => {
+    const newGuests = [...formData.guestDetails];
+    newGuests[index] = e.target.value;
+    setFormData({ ...formData, guestDetails: newGuests });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      ownerName: formData.ownerName,
+      email: formData.email,
+      phone: formData.phone,
+      roomType: selectedRoom?.name,
+      numberOfRooms: parseInt(formData.numberOfRooms),
+      adults: parseInt(formData.adults),
+      children: parseInt(formData.children),
+      guestDetails: formData.guestDetails,
+      startDate: formData.checkin,
+      endDate: formData.checkout,
+    };
+
+    try {
+      await axios.post(API_URL, payload);
+      setShowForm(false);
+      setSuccess(true);
+      setTimeout(() => setSuccess(false), 3000);
+    } catch (error) {
+      console.error("Booking failed:", error.response?.data || error.message);
+      setErrorMsg(error.response?.data?.message || "Booking failed. Please try again.");
+    }
+  };
+
+  const totalGuests = parseInt(formData.adults) + parseInt(formData.children);
 
   return (
     <div className="booking-main">
@@ -104,7 +165,7 @@ const Booking = () => {
               </div>
             </div>
 
-            {/* Booking Form */}
+            {/* Booking Form Box */}
             <div className="room-book-box">
               <img className="room-image" src={room.image} alt={room.name} />
               <div className="input-boxes">
@@ -112,22 +173,95 @@ const Booking = () => {
                 <input type="date" />
                 <label>Check-out</label>
                 <input type="date" />
-                <button className="book-button" onClick={handleBooking}>Book Now</button>
+                <button className="book-button" onClick={() => handleBookingClick(room)}>Book Now</button>
               </div>
             </div>
           </div>
         );
       })}
 
-      {/* Modal */}
-      {showModal && (
+      {/* Booking Request Form Modal */}
+      {showForm && (
         <div className="booking-modal">
-          <div className="modal-content">
-            <FaCheckCircle size={40} color="green" />
-            <p>Booking Successful! A confirmation email has been sent.</p>
+          <div className="modal-content form-modal">
+            <h2>Booking Request - {selectedRoom?.name}</h2>
+            <form onSubmit={handleFormSubmit} className="booking-form">
+              <div className="form-field">
+                <label>Name</label>
+                <input type="text" name="ownerName" value={formData.ownerName} onChange={handleInputChange} required />
+              </div>
+
+              <div className="form-field">
+                <label>Email</label>
+                <input type="email" name="email" value={formData.email} onChange={handleInputChange} required />
+              </div>
+
+              <div className="form-field">
+                <label>Phone</label>
+                <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required />
+              </div>
+
+              <div className="form-field">
+                <label>Number of Rooms</label>
+                <input type="number" name="numberOfRooms" min="1" value={formData.numberOfRooms} onChange={handleInputChange} required />
+              </div>
+
+              <div className="form-field">
+                <label>Adults</label>
+                <input type="number" name="adults" min="0" max="2" value={formData.adults} onChange={handleInputChange} required />
+              </div>
+
+              <div className="form-field">
+                <label>Children</label>
+                <input type="number" name="children" min="0" max="2" value={formData.children} onChange={handleInputChange} required />
+              </div>
+
+              <div className="form-field">
+                <label>Check-in</label>
+                <input type="date" name="checkin" value={formData.checkin} onChange={handleInputChange} required />
+              </div>
+
+              <div className="form-field">
+                <label>Check-out</label>
+                <input type="date" name="checkout" value={formData.checkout} onChange={handleInputChange} required />
+              </div>
+
+              <div className="guest-details">
+                <label>Guest Names</label>
+                {Array.from({ length: totalGuests }).map((_, i) => (
+                  <input
+                    key={i}
+                    type="text"
+                    placeholder={`Guest ${i + 1} name`}
+                    value={formData.guestDetails[i] || ""}
+                    onChange={(e) => handleGuestDetailChange(e, i)}
+                    required
+                  />
+                ))}
+              </div>
+
+              <button type="submit" className="book-button">Submit Request</button>
+              <button type="button" className="close-button" onClick={() => setShowForm(false)}>Cancel</button>
+            </form>
+            {errorMsg && <p className="error-msg">❌ {errorMsg}</p>}
           </div>
         </div>
       )}
+
+      {/* Success Modal */}
+      {success && (
+        <div className="booking-modal">
+          <div className="modal-content">
+            <FaCheckCircle size={40} color="green" />
+            <p>Booking Request Submitted! A confirmation email has been sent.</p>
+          </div>
+        </div>
+      )}
+
+      {/* Reviews */}
+      <div className="review-section">
+        <Reviews />
+      </div>
     </div>
   );
 };

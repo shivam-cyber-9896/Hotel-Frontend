@@ -1,0 +1,312 @@
+/* Layout */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+  background: #ecf0f1;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #2c3e50;
+  color: #fff;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.sidebar li:hover {
+  background: #34495e;
+}
+
+.logout-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #e74c3c;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+}
+
+/* Main Content */
+.content {
+  flex: 1;
+  padding: 30px;
+  background: #f9fbfd;
+  border-left: 2px solid #ddd;
+}
+
+/* Tables */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-table th,
+.admin-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.admin-table th {
+  background: #2980b9;
+  color: white;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.admin-table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.admin-table tr:hover {
+  background: #eaf2f8;
+}
+
+/* Admin photo */
+.admin-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Form */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+.admin-form input,
+.admin-form select,
+.admin-form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.admin-form button {
+  background: #27ae60;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.admin-form button:hover {
+  background: #1e8449;
+}
+/*
+  Save the CSS below as `Admin.css` in the same folder as this component.
+*/
+
+/* Admin.css */
+/* Paste this CSS into src/components/Admin.css */
+
+/* Layout */
+.am-root { display: flex; min-height: 100vh; font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: linear-gradient(180deg, #f5f7fb 0%, #eef3fb 100%); }
+
+/* Sidebar */
+.am-sidebar { width: 260px; padding: 28px 20px; background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); border-right: 1px solid rgba(0,0,0,0.06); box-shadow: 0 4px 30px rgba(0,0,0,0.03); position: fixed; left: 0; top: 0; bottom: 0; }
+.am-brand { font-weight: 700; font-size: 20px; color: #0b2545; margin-bottom: 18px; }
+.am-sidebar nav { display: flex; flex-direction: column; gap: 8px; }
+.am-sidebar button { text-align: left; padding: 10px 12px; border-radius: 8px; background: transparent; border: none; cursor: pointer; color: #10243a; font-weight: 600; }
+.am-sidebar button:hover { background: rgba(16,36,58,0.06); }
+.am-sidebar button.active { background: linear-gradient(90deg,#2b6cb0, #2c7be5); color: #fff; }
+.am-sidebar-footer { position: absolute; bottom: 24px; left: 20px; right: 20px; display: flex; gap: 8px; }
+
+.btn-primary { background: linear-gradient(90deg,#2c7be5,#4aa3ff); color: #fff; padding: 8px 12px; border-radius: 8px; border: none; cursor: pointer; }
+.btn-ghost { background: transparent; border: 1px solid rgba(16,36,58,0.06); padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+
+/* Main */
+.am-main { margin-left: 280px; padding: 28px; width: calc(100% - 280px); }
+.am-dashboard h1 { margin: 0 0 14px; }
+.am-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 18px; }
+.stat { background: white; border-radius: 12px; padding: 18px; box-shadow: 0 6px 18px rgba(11,37,69,0.04); }
+.stat-value { font-size: 20px; font-weight: 700; color: #10243a; }
+.stat-label { font-size: 13px; color: #586c80; }
+
+.table-wrap { margin-top: 16px; overflow: auto; }
+.am-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 18px rgba(11,37,69,0.04); }
+.am-table th, .am-table td { padding: 12px 14px; border-bottom: 1px solid #f0f2f5; text-align: left; }
+.am-table thead th { background: #fafcff; color: #0b2545; font-weight: 700; }
+.am-table tbody tr:hover { background: #f6fbff; cursor: pointer; }
+
+.avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+.avatar-empty { width: 44px; height: 44px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: #e6f0ff; color: #2c6fb3; font-weight: 700; }
+
+.muted { color: #6b7a8a; margin-top: 8px; }
+
+.detail-panel { position: fixed; right: 28px; top: 80px; width: 420px; background: white; padding: 16px; border-radius: 12px; box-shadow: 0 10px 30px rgba(16,36,58,0.12); }
+.detail-panel .close { float: right; border: none; background: transparent; font-weight: 700; cursor: pointer; }
+
+.json-block { max-height: 400px; overflow: auto; background: #0b2545; color: #fff; padding: 12px; border-radius: 8px; font-size: 12px; }
+
+/* Reviews photos */
+.photos-row { display: flex; gap: 8px; }
+.thumb { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; }
+
+/* Modal */
+.modal-root { 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6); 
+  display: flex !important; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 99999;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal { 
+  width: 520px; 
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: white !important; 
+  padding: 28px; 
+  border-radius: 16px; 
+  box-shadow: 0 20px 60px rgba(11,37,69,0.25);
+  animation: slideUp 0.3s ease;
+  position: relative;
+  z-index: 100000;
+  display: block !important;
+}
+
+.modal h3 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0b2545;
+}
+
+.modal-form { 
+  display: flex !important;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.modal-form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-form label { 
+  display: block !important; 
+  margin-bottom: 4px; 
+  font-weight: 600;
+  color: #10243a;
+  font-size: 14px;
+}
+
+.modal-form input[type="text"], 
+.modal-form input[type="password"], 
+.modal-form select, 
+.modal-form input[type="file"] { 
+  width: 100%; 
+  padding: 12px 14px; 
+  margin-top: 6px; 
+  border-radius: 10px; 
+  border: 2px solid #e6eef8;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.modal-form input[type="text"]:focus, 
+.modal-form input[type="password"]:focus, 
+.modal-form select:focus {
+  border-color: #2c7be5;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(44, 123, 229, 0.1);
+}
+
+.modal-form input[type="file"] {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.modal-actions { 
+  display: flex; 
+  gap: 12px; 
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.modal-actions .btn-primary {
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.modal-actions .btn-ghost {
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #586c80;
+}
+
+.modal-actions .btn-ghost:hover {
+  background: rgba(16,36,58,0.06);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(30px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .am-sidebar { display: none; }
+  .am-main { margin-left: 0; width: 100%; }
+}
